@@ -5,11 +5,16 @@ let home = document.querySelector('.home');
 
 var counter = 1;
 
+prev.classList.add("button-hover2");
+next.classList.add("button-hover2");
+
 next.addEventListener("click", () => {
     if(counter === 1) {
         home.classList.add("creator-view");
         counter++;
         prev.disabled = false;
+        prev.classList.remove("button-hover");
+        prev.classList.add("button-hover2");
     } else if(counter === 2) {
         home.classList.add("mentor-view");
         counter++;
@@ -18,9 +23,12 @@ next.addEventListener("click", () => {
         home.classList.add("investor-view");
         counter++;
         next.disabled = true;
-        next.style.backgroundColor = "#ede8e8";
+        next.classList.remove("button-hover2");
+        next.classList.add("button-hover");
+        
         prev.disabled = false;
-        prev.style.backgroundColor="#f90";
+        prev.classList.add("button-hover2");
+
         
     } 
 
@@ -44,6 +52,8 @@ prev.addEventListener("click", () => {
         home.classList.remove("investor-view");
         counter--;
         next.disabled = false;
+        next.classList.remove("button-hover");
+        next.classList.add("button-hover2");
     } else if (counter === 3) {
         home.classList.remove("mentor-view");
         counter--;
@@ -51,9 +61,13 @@ prev.addEventListener("click", () => {
         home.classList.remove("creator-view");
         counter--;
         prev.disabled = true;
-        prev.style.backgroundColor = "#ede8e8";
+        prev.classList.remove("button-hover2");
+        prev.classList.add("button-hover");
+        
         next.disabled = false;
-        next.style.backgroundColor="#f90";
+        next.classList.remove("button-hover");
+        next.classList.add("button-hover2");
+
 
     } 
 
